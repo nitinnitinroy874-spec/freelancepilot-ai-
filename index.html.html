@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreelancePilot AI — Personal Freelancer Workspace</title>
+<style>
+:root{--bg:#0b1220;--panel:#111c2f;--panel2:#17253b;--line:#263750;--text:#edf4ff;--muted:#9db0c9;--blue:#68b8ff;--green:#72dfb1;--amber:#ffd080;--red:#ff9b9b}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(140deg,#0a1120,#0d1728 55%,#101c30);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:10px 13px;background:#20334e;color:var(--text)}button:hover{filter:brightness(1.12)}button.primary{background:var(--blue);color:#071321;border-color:transparent;font-weight:700}button.ghost{background:transparent}.wrap{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.side{padding:24px 16px;border-right:1px solid var(--line);background:#0b1424}.brand{font-weight:800;font-size:19px;letter-spacing:-.4px;display:flex;gap:10px;align-items:center;padding:3px 8px 25px}.logo{width:35px;height:35px;display:grid;place-items:center;border-radius:11px;background:linear-gradient(135deg,#68b8ff,#72dfb1);color:#071321;font-weight:900}.smallcap{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#7086a3;padding:12px 10px}.nav{width:100%;text-align:left;display:flex;gap:11px;align-items:center;background:transparent;border-color:transparent;color:var(--muted);margin:3px 0}.nav.active,.nav:hover{background:#192a42;color:var(--text);border-color:#263b57}.side-note{margin:25px 5px;padding:14px;background:#111e31;border:1px solid var(--line);border-radius:13px;color:var(--muted);font-size:12px;line-height:1.55}.main{padding:28px;max-width:1400px;width:100%;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:25px}.eyebrow{color:var(--blue);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px}.top h1{margin:7px 0 5px;font-size:clamp(24px,3vw,34px);letter-spacing:-1px}.sub{color:var(--muted);font-size:14px;line-height:1.5}.pill{font-size:11px;border:1px solid #31516e;background:#152942;color:#9ed3ff;border-radius:99px;padding:7px 10px;white-space:nowrap}.grid{display:grid;gap:15px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin:20px 0}.card{background:linear-gradient(145deg,rgba(20,33,54,.98),rgba(15,26,44,.98));border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}.statlabel{font-size:12px;color:var(--muted)}.statnum{font-size:28px;font-weight:800;margin:9px 0 3px}.statfoot{font-size:11px;color:#8197b4}.cols{grid-template-columns:1.1fr .9fr}.section-title{font-size:16px;font-weight:750;margin:0 0 5px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.field{display:flex;flex-direction:column;gap:7px;margin:12px 0}.field label{font-size:12px;color:var(--muted)}input,select,textarea{width:100%;background:#0b1627;border:1px solid #2a3e59;border-radius:9px;color:var(--text);padding:11px 12px;outline:none}textarea{resize:vertical;min-height:105px;line-height:1.5}input:focus,select:focus,textarea:focus{border-color:var(--blue)}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.muted{color:var(--muted)}.checklist{display:grid;gap:10px}.check{display:flex;gap:10px;align-items:flex-start;padding:10px 11px;background:#101d30;border:1px solid #243750;border-radius:10px;font-size:13px}.check input{width:auto;margin-top:2px;accent-color:#68b8ff}.check small{display:block;color:var(--muted);margin-top:3px;font-size:11px}.tag{font-size:10px;color:#b8d9ff;background:#19324d;border:1px solid #2a4b6b;padding:4px 7px;border-radius:6px}.lead{border:1px solid #293c55;background:#101d30;padding:13px;border-radius:12px;margin-top:10px}.leadtop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.lead h3{font-size:14px;margin:0 0 5px}.lead p{font-size:12px;color:var(--muted);line-height:1.45;margin:5px 0}.lead-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.lead-actions button{font-size:11px;padding:7px 9px}.status{border-radius:99px;padding:4px 8px;font-size:10px;background:#25334a;color:#c7d7ed;white-space:nowrap}.status.Applied{background:#163d35;color:#8cf0c9}.status.Replied{background:#3d321c;color:#ffdb91}.status.Won{background:#194637;color:#91f0c5}.status.Rejected{background:#45252b;color:#ffb1b1}.empty{border:1px dashed #354b67;border-radius:12px;padding:25px;text-align:center;color:var(--muted);font-size:13px}.notice{padding:12px 14px;border-radius:10px;background:#182940;border:1px solid #2a4664;color:#b9d9f8;font-size:12px;line-height:1.5;margin:12px 0}.hidden{display:none!important}.profile-preview{padding:18px;border:1px solid var(--line);border-radius:13px;background:#0c1728;white-space:pre-wrap;line-height:1.6;font-size:13px}.footer{font-size:11px;color:#6f84a0;margin-top:20px;line-height:1.6}.mobilebar{display:none}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}.side{position:sticky;top:0;z-index:4;border-right:0;border-bottom:1px solid var(--line);padding:10px;display:flex;align-items:center;gap:6px;overflow:auto}.brand{padding:4px 8px 4px 2px;white-space:nowrap;font-size:15px}.logo{width:29px;height:29px}.smallcap,.side-note{display:none}.nav{width:auto;white-space:nowrap;font-size:12px;padding:9px}.main{padding:19px 14px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.cols{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside class="side">
+  <div class="brand"><span class="logo">FP</span><span>FreelancePilot <span style="color:var(--blue)">AI</span></span></div>
+  <div class="smallcap">Workspace</div>
+  <button class="nav active" data-page="overview">◈ &nbsp; Overview</button>
+  <button class="nav" data-page="jobs">⌕ &nbsp; Job tracker</button>
+  <button class="nav" data-page="proposal">✎ &nbsp; Proposal writer</button>
+  <button class="nav" data-page="profile">◎ &nbsp; Contra setup</button>
+  <button class="nav" data-page="settings">⚙ &nbsp; Settings & data</button>
+  <div class="side-note"><strong style="color:var(--text)">Approval-first mode</strong><br>Drafts stay in your control. This demo does not log in to Contra, scrape sites, or send applications automatically.</div>
+</aside>
+<main class="main">
+  <div class="top"><div><div class="eyebrow">Personal freelancer workspace</div><h1 id="pageTitle">Good to see you, Nitin.</h1><div class="sub" id="pageSub">Find suitable opportunities, prepare strong proposals, and keep every lead organized.</div></div><span class="pill">● Local demo · Free</span></div>
+
+  <section id="page-overview">
+    <div class="grid stats">
+      <div class="card"><div class="statlabel">Saved opportunities</div><div class="statnum" id="statLeads">0</div><div class="statfoot">Your tracked leads</div></div>
+      <div class="card"><div class="statlabel">Applications sent</div><div class="statnum" id="statApplied">0</div><div class="statfoot">Update status after applying</div></div>
+      <div class="card"><div class="statlabel">Replies</div><div class="statnum" id="statReplies">0</div><div class="statfoot">Interested responses</div></div>
+      <div class="card"><div class="statlabel">Won projects</div><div class="statnum" id="statWon">0</div><div class="statfoot">Confirmed projects only</div></div>
+    </div>
+    <div class="grid cols">
+      <div class="card">
+        <div class="section-head"><div><div class="section-title">Your next actions</div><div class="sub">A practical setup path for your freelancer profile.</div></div><span class="tag">START HERE</span></div>
+        <div class="checklist" id="overviewTasks"></div>
+        <div class="row" style="margin-top:14px"><button class="primary" onclick="go('profile')">Open Contra setup →</button><button onclick="go('jobs')">Add an opportunity</button></div>
+      </div>
+      <div class="card">
+        <div class="section-title">Client acquisition workflow</div><p class="sub">Keep the process simple and repeatable.</p>
+        <div class="lead"><div class="leadtop"><strong>1. Discover</strong><span class="tag">Research</span></div><p>Find a real job listing from a public source and save its link.</p></div>
+        <div class="lead"><div class="leadtop"><strong>2. Qualify</strong><span class="tag">Fit check</span></div><p>Confirm the task, budget, eligibility, deadline, and required skills.</p></div>
+        <div class="lead"><div class="leadtop"><strong>3. Draft & approve</strong><span class="tag">Your control</span></div><p>Prepare a tailored proposal, review it, then submit it yourself on the platform.</p></div>
+        <div class="notice">No client or income is guaranteed. This dashboard helps organize the work; it does not yet provide live job feeds.</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:15px"><div class="section-head"><div><div class="section-title">Recent opportunities</div><div class="sub">Your latest saved leads appear here.</div></div><button onclick="go('jobs')">View tracker</button></div><div id="recentLeads"></div></div>
+  </section>
+
+  <section id="page-jobs" class="hidden">
+    <div class="grid cols">
+      <div class="card">
+        <div class="section-title">Add an opportunity</div><p class="sub">Save a real job link you found on Contra or a public job board.</p>
+        <form id="leadForm">
+          <div class="field"><label>Job / project title *</label><input id="jobTitle" required placeholder="e.g. AI Text Annotation Specialist"></div>
+          <div class="two"><div class="field"><label>Company / client</label><input id="company" placeholder="Company name"></div><div class="field"><label>Source</label><select id="source"><option>Contra</option><option>LinkedIn</option><option>Company careers page</option><option>AI platform</option><option>Other</option></select></div></div>
+          <div class="field"><label>Job URL</label><input id="jobUrl" type="url" placeholder="https://..."></div>
+          <div class="two"><div class="field"><label>Budget / rate shown</label><input id="budget" placeholder="e.g. $20/hour or Not listed"></div><div class="field"><label>Fit score</label><select id="fit"><option value="High">High</option><option value="Medium" selected>Medium</option><option value="Low">Low</option></select></div></div>
+          <div class="field"><label>Requirements / notes</label><textarea id="requirements" placeholder="Skills, deliverables, deadline, eligibility..."></textarea></div>
+          <button class="primary" type="submit">+ Save opportunity</button>
+        </form>
+      </div>
+      <div class="card">
+        <div class="section-title">Your pipeline</div><p class="sub">Update a lead's status as you work on it.</p>
+        <div class="field"><label>Filter by status</label><select id="statusFilter" onchange="renderLeads()"><option>All</option><option>Saved</option><option>Drafting</option><option>Applied</option><option>Replied</option><option>Interview</option><option>Won</option><option>Rejected</option></select></div>
+        <div class="field"><label>Search saved leads</label><input id="leadSearch" placeholder="Search title or company..." oninput="renderLeads()"></div>
+        <div id="leadList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="page-proposal" class="hidden">
+    <div class="grid cols">
+      <div class="card">
+        <div class="section-title">Personalized proposal builder</div><p class="sub">Add the actual job details. The tool creates a draft for you to review.</p>
+        <div class="field"><label>Job title *</label><input id="pJob" placeholder="AI Data Annotation Specialist"></div>
+        <div class="field"><label>Client / company (optional)</label><input id="pClient" placeholder="Company name"></div>
+        <div class="field"><label>What does the client need? *</label><textarea id="pNeed" placeholder="Paste or summarize the job requirements..."></textarea></div>
+        <div class="field"><label>Relevant proof / sample you can honestly show</label><textarea id="pProof" placeholder="e.g. I created a practice text-classification dataset with a documented labeling rubric."></textarea></div>
+        <div class="field"><label>Questions for the client (optional)</label><textarea id="pQuestions" placeholder="Expected volume, labeling guidelines, acceptance criteria..."></textarea></div>
+        <button class="primary" onclick="makeProposal()">Generate proposal draft</button>
+      </div>
+      <div class="card">
+        <div class="section-head"><div><div class="section-title">Draft for your approval</div><div class="sub">Review every detail before sending.</div></div><span class="tag">NOT SENT</span></div>
+        <textarea id="proposalOutput" style="min-height:390px" placeholder="Your generated proposal will appear here..."></textarea>
+        <div class="row" style="margin-top:10px"><button class="primary" onclick="copyProposal()">Copy proposal</button><button onclick="downloadProposal()">Download .txt</button></div>
+        <div class="notice">This tool only drafts text. It does not submit proposals or message clients automatically.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="page-profile" class="hidden">
+    <div class="grid cols">
+      <div class="card">
+        <div class="section-title">Contra profile checklist</div><p class="sub">Tick each item when it is genuinely complete on your Contra account.</p>
+        <div class="checklist" id="profileTasks"></div>
+        <div class="field"><label>Headline draft</label><input id="headline" value="AI Data Annotator | LLM Evaluation & Data Quality"></div>
+        <div class="field"><label>About section draft</label><textarea id="bio" style="min-height:180px">I'm Nitin Kumar, focused on AI data annotation, text classification, LLM response evaluation, and data quality review. I value accuracy, consistency, clear documentation, and careful attention to project guidelines. I'm open to collaborating with AI teams and businesses worldwide on well-defined data projects.</textarea></div>
+        <button class="primary" onclick="saveProfileDraft()">Save profile drafts</button> <button onclick="copyProfile()">Copy headline + bio</button>
+      </div>
+      <div class="card">
+        <div class="section-title">Portfolio plan</div><p class="sub">Create these samples yourself; label them as practice projects.</p>
+        <div class="lead"><h3>01 · Text data annotation</h3><p>Label 30–50 synthetic text examples using a small, documented label guide. Deliver a CSV and a short quality note.</p><span class="tag">Practice project</span></div>
+        <div class="lead"><h3>02 · LLM response evaluation</h3><p>Evaluate 10 sample prompt-response pairs for relevance, clarity, instruction following, and factual support. Explain each rating.</p><span class="tag">Practice project</span></div>
+        <div class="lead"><h3>03 · Data quality review</h3><p>Use a synthetic dataset to identify duplicates, missing values, and inconsistent formats; show before/after results.</p><span class="tag">Practice project</span></div>
+        <div class="notice">Do not claim client experience, certifications, or results you don't have. Use only samples you have completed and can explain.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="page-settings" class="hidden">
+    <div class="grid cols">
+      <div class="card">
+        <div class="section-title">Your workspace preferences</div>
+        <div class="field"><label>Your name</label><input id="userName" value="Nitin Kumar"></div>
+        <div class="field"><label>Primary service</label><select id="service"><option>AI Data Annotation</option><option>LLM Response Evaluation</option><option>Data Quality Review</option><option>Document Review</option></select></div>
+        <div class="field"><label>Target markets</label><input id="markets" value="USA, UK, international remote"></div>
+        <button class="primary" onclick="saveSettings()">Save preferences</button>
+        <div class="notice">This prototype stores your records in this browser only. It has no account system or cloud sync. Avoid entering passwords, OTPs, payment details, or confidential client data.</div>
+      </div>
+      <div class="card">
+        <div class="section-title">Backup & restore</div><p class="sub">Export a backup before clearing browser data or switching devices.</p>
+        <div class="row"><button class="primary" onclick="exportData()">Export workspace JSON</button><button onclick="document.getElementById('importFile').click()">Import backup</button><input id="importFile" type="file" accept="application/json" class="hidden"></div>
+        <div class="field"><label>Reset local workspace</label><p class="sub">This permanently clears leads and checklist progress stored in this browser.</p><button onclick="resetData()">Reset workspace data</button></div>
+      </div>
+    </div>
+  </section>
+  <div class="footer">FreelancePilot AI · Personal prototype · Free local-first demo. Opportunity links must be sourced and checked by you. No automated logins, scraping, applications, or client messages are performed.</div>
+</main>
+</div>
+<script>
+const KEY='freelancepilot_v1';
+const profileItems=[
+['Real profile photo','Upload a clear, genuine professional headshot.'],
+['Headline and About','Use the saved drafts, then review them on Contra.'],
+['Relevant skills','Select only skills you can demonstrate.'],
+['Portfolio sample 1','Publish a completed text annotation practice sample.'],
+['Portfolio sample 2','Publish a completed evaluation or data-quality sample.'],
+['Service scope and rate','Set realistic deliverables, pricing, and turnaround.'],
+['Profile preview','Check desktop and mobile layout.'],
+['Verification and payout setup','Complete official platform steps yourself; never store credentials here.']
+];
+const overviewItems=[
+['Finish Contra profile','Complete your profile details and save changes.','profile'],
+['Create two portfolio samples','Use synthetic/public-safe data and explain your method.','profile'],
+['Save first relevant opportunity','Add the job URL and requirements to the tracker.','jobs'],
+['Draft one tailored proposal','Use a real listing and review the proposal before sending.','proposal']
+];
+let data=load();
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{leads:[],profileChecks:[],overviewChecks:[],settings:{name:'Nitin Kumar',service:'AI Data Annotation',markets:'USA, UK, international remote'},headline:'AI Data Annotator | LLM Evaluation & Data Quality',bio:null}}catch(e){return {leads:[],profileChecks:[],overviewChecks:[],settings:{name:'Nitin Kumar',service:'AI Data Annotation',markets:'USA, UK, international remote'}}}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(data));renderAll()}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function go(page){document.querySelectorAll('[id^="page-"]').forEach(el=>el.classList.add('hidden'));document.getElementById('page-'+page).classList.remove('hidden');document.querySelectorAll('.nav').forEach(n=>n.classList.toggle('active',n.dataset.page===page));const titles={overview:['Good to see you, '+(data.settings?.name||'Nitin')+'.','Find suitable opportunities, prepare strong proposals, and keep every lead organized.'],jobs:['Job tracker','Save real opportunities, qualify fit, and track your application pipeline.'],proposal:['Proposal writer','Create a personalized draft. You approve and submit it yourself.'],profile:['Contra profile setup','Prepare your profile and portfolio with honest, verifiable proof.'],settings:['Settings & data','Manage local preferences and back up your workspace.']};document.getElementById('pageTitle').textContent=titles[page][0];document.getElementById('pageSub').textContent=titles[page][1];}
+document.querySelectorAll('.nav').forEach(n=>n.addEventListener('click',()=>go(n.dataset.page)));
+function checkboxList(target,items,key){const root=document.getElementById(target);root.innerHTML=items.map((item,i)=>`<label class="check"><input type="checkbox" ${data[key].includes(i)?'checked':''} onchange="toggleCheck('${key}',${i},this.checked)"><span><strong>${esc(item[0])}</strong><small>${esc(item[1])}</small></span></label>`).join('')}
+function toggleCheck(key,i,on){data[key]=on?[...new Set([...data[key],i])]:data[key].filter(x=>x!==i);localStorage.setItem(KEY,JSON.stringify(data));renderAll()}
+function renderAll(){document.getElementById('statLeads').textContent=data.leads.length;document.getElementById('statApplied').textContent=data.leads.filter(x=>['Applied','Replied','Interview','Won'].includes(x.status)).length;document.getElementById('statReplies').textContent=data.leads.filter(x=>['Replied','Interview','Won'].includes(x.status)).length;document.getElementById('statWon').textContent=data.leads.filter(x=>x.status==='Won').length;checkboxList('profileTasks',profileItems,'profileChecks');checkboxList('overviewTasks',overviewItems,'overviewChecks');renderLeads();renderRecent();document.getElementById('headline').value=data.headline||'AI Data Annotator | LLM Evaluation & Data Quality';document.getElementById('bio').value=data.bio||document.getElementById('bio').value;document.getElementById('userName').value=data.settings?.name||'Nitin Kumar';document.getElementById('service').value=data.settings?.service||'AI Data Annotation';document.getElementById('markets').value=data.settings?.markets||'USA, UK, international remote'}
+document.getElementById('leadForm').addEventListener('submit',e=>{e.preventDefault();data.leads.unshift({id:Date.now(),title:document.getElementById('jobTitle').value.trim(),company:document.getElementById('company').value.trim(),source:document.getElementById('source').value,url:document.getElementById('jobUrl').value.trim(),budget:document.getElementById('budget').value.trim(),fit:document.getElementById('fit').value,notes:document.getElementById('requirements').value.trim(),status:'Saved',created:new Date().toISOString()});e.target.reset();document.getElementById('fit').value='Medium';persist();});
+function leadHTML(l){return `<div class="lead"><div class="leadtop"><div><h3>${esc(l.title)}</h3><p>${esc(l.company||'Client not specified')} · ${esc(l.source)} · <span class="tag">${esc(l.fit)} fit</span></p></div><span class="status ${esc(l.status)}">${esc(l.status)}</span></div>${l.budget?`<p><strong>Budget:</strong> ${esc(l.budget)}</p>`:''}${l.notes?`<p>${esc(l.notes)}</p>`:''}<div class="lead-actions">${l.url?`<button onclick="openLead(${l.id})">Open job ↗</button>`:''}<select aria-label="Change status" onchange="setStatus(${l.id},this.value)" style="width:auto;padding:7px;font-size:11px">${['Saved','Drafting','Applied','Replied','Interview','Won','Rejected'].map(s=>`<option ${l.status===s?'selected':''}>${s}</option>`).join('')}</select><button onclick="useLead(${l.id})">Draft proposal</button><button onclick="deleteLead(${l.id})">Delete</button></div></div>`}
+function renderLeads(){const root=document.getElementById('leadList');if(!root)return;const f=document.getElementById('statusFilter')?.value||'All',q=(document.getElementById('leadSearch')?.value||'').toLowerCase();const arr=data.leads.filter(l=>(f==='All'||l.status===f)&&(`${l.title} ${l.company} ${l.notes}`.toLowerCase().includes(q)));root.innerHTML=arr.length?arr.map(leadHTML).join(''):'<div class="empty">No matching opportunities yet.<br><br>Add a real job listing to start tracking.</div>'}
+function renderRecent(){const el=document.getElementById('recentLeads');if(!el)return;el.innerHTML=data.leads.length?data.leads.slice(0,3).map(leadHTML).join(''):'<div class="empty">No saved opportunities yet. Add your first real job listing in Job tracker.</div>'}
+function openLead(id){const l=data.leads.find(x=>x.id===id);if(l?.url)window.open(l.url,'_blank','noopener,noreferrer')}
+function setStatus(id,status){const l=data.leads.find(x=>x.id===id);if(l){l.status=status;persist()}}
+function deleteLead(id){if(confirm('Delete this saved opportunity?')){data.leads=data.leads.filter(x=>x.id!==id);persist()}}
+function useLead(id){const l=data.leads.find(x=>x.id===id);if(!l)return;go('proposal');document.getElementById('pJob').value=l.title;document.getElementById('pClient').value=l.company;document.getElementById('pNeed').value=[l.notes,l.budget?'Budget listed: '+l.budget:'',l.url?'Job link: '+l.url:''].filter(Boolean).join('\n')}
+function makeProposal(){const job=document.getElementById('pJob').value.trim(),client=document.getElementById('pClient').value.trim(),need=document.getElementById('pNeed').value.trim(),proof=document.getElementById('pProof').value.trim(),questions=document.getElementById('pQuestions').value.trim();if(!job||!need){alert('Please add the job title and requirements first.');return}let out=`Hi${client?' '+client+' team':''},\n\nI’m interested in your ${job} project. I reviewed the requirements you shared and would be glad to discuss how I can support the work.\n\nMy approach is to follow your guidelines carefully, keep labels and reviews consistent, document unclear cases, and check the final deliverable against the agreed criteria.\n\n${proof?'Relevant sample / proof: '+proof+'\n\n':'I can share a relevant practice sample or complete a small, clearly scoped paid trial if useful.\n\n'}To make sure the scope is a good fit, I’d like to clarify:\n${questions?questions.split('\n').filter(Boolean).map(x=>'• '+x).join('\n'):'• Expected task volume and deadline\n• Labeling or evaluation guidelines and acceptance criteria'}\n\nI’m happy to review the full brief and confirm a realistic timeline before starting.\n\nBest regards,\n${data.settings?.name||'Nitin Kumar'}`;document.getElementById('proposalOutput').value=out}
+async function copyProposal(){const t=document.getElementById('proposalOutput').value;if(!t){alert('Generate a proposal draft first.');return}try{await navigator.clipboard.writeText(t);alert('Proposal copied. Review it before sending.')}catch(e){alert('Clipboard access unavailable. Select and copy the text manually.')}}
+function downloadProposal(){const t=document.getElementById('proposalOutput').value;if(!t){alert('Generate a proposal draft first.');return}downloadFile('proposal-draft.txt',t,'text/plain')}
+function saveProfileDraft(){data.headline=document.getElementById('headline').value.trim();data.bio=document.getElementById('bio').value.trim();persist();alert('Profile drafts saved in this browser. They have not been published to Contra.')}
+async function copyProfile(){const t='Headline: '+document.getElementById('headline').value+'\n\nAbout:\n'+document.getElementById('bio').value;try{await navigator.clipboard.writeText(t);alert('Profile drafts copied. Paste them into Contra after reviewing.')}catch(e){alert('Clipboard unavailable. Copy the fields manually.')}}
+function saveSettings(){data.settings={name:document.getElementById('userName').value.trim()||'Nitin Kumar',service:document.getElementById('service').value,markets:document.getElementById('markets').value.trim()};persist();alert('Preferences saved locally.')}
+function downloadFile(name,content,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([content],{type}));a.href=url;a.download=name;a.click();URL.revokeObjectURL(url)}
+function exportData(){downloadFile('freelancepilot-backup.json',JSON.stringify(data,null,2),'application/json')}
+document.getElementById('importFile').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{const obj=JSON.parse(await f.text());if(!obj||!Array.isArray(obj.leads))throw Error('Invalid backup');data={...data,...obj};persist();alert('Backup imported.')}catch(err){alert('Could not import this backup file.')}e.target.value=''});
+function resetData(){if(confirm('This clears all locally saved leads and checklist progress. Export a backup first if needed. Continue?')){localStorage.removeItem(KEY);data=load();persist()}}
+renderAll();
+</script>
+</body>
+</html>
